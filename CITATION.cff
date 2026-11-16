@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Please cite the frozen dataset release. Zenodo DOI: https://doi.org/10.5281/zenodo.24260238."
+type: dataset
+title: "US fall detection watch and medical alert comparison: fees, terms and who is called (November 2026)"
+authors:
+  - name: KeepOkey
+version: 1.0.0
+doi: 10.5281/zenodo.24260238
+date-released: 2026-11-15
+license: CC-BY-4.0
+keywords:
+  - fall detection
+  - medical alert
+  - fees
+  - service terms
+  - alert recipients
+  - United States
+abstract: "Frozen documentary comparison: 39 scoped rows, 158 populated value cells, and 203 evidence records. KeepOkey is an included seller and the institutional compiler. Source statements are not product-performance test results."
