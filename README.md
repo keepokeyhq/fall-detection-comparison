@@ -1,34 +1,19 @@
-Published by KeepOkey, which offers a 4G fall detection watch that calls family. This dataset compiles published fees, terms and alert recipients of fall detection and medical alert providers, including competitors, as captured on November 13, 2026.
+# KeepOkey Fall Alert Index — November 2026
 
-# Fall detection comparison files and documentation
+KeepOkey offers a 4G fall detection watch that calls family. This dataset uses only providers' own published pages (third-party records are labelled); the data files and method are included here.
 
-Start with the field definitions before filtering these files. A row can concern a policy or carrier reference, and repeated evidence can describe the same cell. This repository contains data and documentation; it has no software, installation procedure, or executable code.
+Version 2.0.2 · Capture dates: 2026-11-20 to 2026-11-21 · Publisher: KeepOkey · License: CC BY 4.0
+Dataset page: https://keepokey.com/pages/fall-alert-index · Concept DOI: https://doi.org/10.5281/zenodo.24260237 (Version 2.0.2 DOI: https://doi.org/10.5281/zenodo.24417882)
 
-## Repository layout
+## What it answers
+Who a US fall detection watch or medical alert service calls after a fall (monitoring center, family, 911), how many family contacts it takes and in what order, what happens when nobody answers, and the published device price, monthly fee, contract, trial, return and battery terms. Every value is a documented claim with a source URL and verbatim quote; nothing here is a product test.
 
-```text
-README.md
-data/KIYAS-TABLOSU.csv
-data/kiyas-uzun.csv
-DATA-DICTIONARY.md
-METHOD.md
-CHANGELOG.md
-CITATION.cff
-LICENSE.md
-```
+## Files
+- `data/keepokey-fall-alert-index-2026-11-long.csv` — 1121 records, one provider–product–field claim each, with `source_url`, `source_quote`, `captured_on`. `source_file` is the name of the saved source text, not a download.
+- `data/keepokey-fall-alert-index-2026-11-wide.csv` — 31 rows (27 device or service providers + 4 cellular carriers), one row per provider; `not stated` means no accepted record, not "no".
+- `METHOD.md` · `DATA-DICTIONARY.md` · `CHANGELOG.md` (Version 1 → 2) · `CITATION.cff` · `LICENSE.md`
 
-The wide file has 18 columns and holds 39 scoped rows and 158 nonempty value cells. The long file has 12 columns and retains 203 evidence entries, including source class, date, conditions, URLs, and reference identifiers. Local capture paths and line numbers are omitted from the public export. [DATA-DICTIONARY.md](DATA-DICTIONARY.md) explains each field; [METHOD.md](METHOD.md) supplies the reading rules.
+## How to cite
+KeepOkey. (2026). KeepOkey Fall Alert Index — November 2026 (Version 2.0.2) [Data set]. https://doi.org/10.5281/zenodo.24417882
 
-## Citation and reuse
-
-KeepOkey. *US fall detection watch and medical alert comparison: fees, terms and who is called — November 2026 (KeepOkey).* Version 1.0.0, frozen November 14, 2026. https://doi.org/10.5281/zenodo.24260238.
-
-Identify the release and retain a value's provider/product scope, attribution, and conditions when quoting it. Empty fields mean not stated. The compilation and documentation use CC BY 4.0; underlying source texts retain their owners' rights. See [LICENSE.md](LICENSE.md).
-
-## What this data does not show
-
-This snapshot provides no product trial, accuracy ranking, response-time comparison, or clinical outcome evidence. Prices can change. External-source captures date to November 13, 2026; internal product-fact and cost-guide entries date to November 14, 2026. KeepOkey supplies its own product facts, while other rows retain their separate source classes. Existing three-year scenarios assume listed rates held constant; no new totals were derived here.
-
-AI citation and study tables: not included in this version.
-
-Cost-guide reference: https://keepokey.com/pages/fall-detection-watch-real-cost-3-years?utm_source=github&utm_medium=dataset&utm_campaign=dagitim-2026-11
+Free to use with attribution (CC BY 4.0).

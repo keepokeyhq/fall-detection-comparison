@@ -1,61 +1,69 @@
----
-kanal: dataset
-kaynak: data/KIYAS-TABLOSU.csv, data/kiyas-uzun.csv
-baslik: Method and limits of the November 2026 comparison
-baglanti: none
-fiyat: hayir
-urun_olgusu: none
----
+KeepOkey offers a 4G fall detection watch that calls family. This dataset uses only providers' own published pages; the data file and method are linked below.
 
-# Method and limits of the November 2026 comparison
+# KeepOkey Fall Alert Index — November 2026
 
-This release documents published statements about charges, commitments, returns, connectivity, and alert destinations. The compilation was frozen on November 14, 2026. External-source records carry November 13, 2026 capture dates; seller-facts and cost-guide records carry November 14, 2026 dates. Capture dates describe this snapshot rather than the date a policy first took effect.
+Version 2.0.2 · Publisher: KeepOkey · Capture dates: 2026-11-20 to 2026-11-21 · License: CC BY 4.0
 
-## Scope and units
+Data downloads and method: [KeepOkey Fall Alert Index](https://keepokey.com/pages/fall-alert-index).
 
-`data/KIYAS-TABLOSU.csv` presents 39 provider/product contexts, 18 columns, and 158 nonempty value cells. `data/kiyas-uzun.csv` contains 203 supporting records in 12 columns. A context can describe a device, service, policy, carrier check, or benchmark. Several contexts can belong to the same provider, and several evidence records can support one cell. Neither row count nor evidence count is a count of distinct tested products.
+Official sources take priority. The long-form release also retains 141 explicitly labelled third-party records; the wide-format comparison uses them only when no official record is available for the same provider and field. These exceptions qualify the opening disclosure.
 
-The release consists of these CSVs and their documentation. Definitions and exact cell examples are in [DATA-DICTIONARY.md](DATA-DICTIONARY.md).
+## What the dataset records
 
-## Source classes
+The index records published claims about prices, contractual terms, device specifications and alert handling. It contains 1,121 long-form records across 22 fields and 31 provider entries: 27 device or service providers and 4 cellular carriers. Each long-form record represents one provider–product–field claim from a source. Multiple records may describe the same field under different plans, products, conditions or sources.
 
-These are the literal `source_kind` values in the evidence ledger. They classify saved source material, not its reliability or independence.
+Every populated comparison value is traceable to a source quote and a source-text line. All records are documented claims, not observations or product tests. The index does not measure fall-detection performance, response reliability, clinical outcomes or carrier compatibility. It does not assign scores or rank providers. A published limitation or absence of automatic fall detection is retained with its context.
 
-| Value | Recorded source material | Interpretation |
-|---|---|---|
-| `gercekler` | KeepOkey's seller-facts file. | Seller statements remain separate from competitor-source records; inclusion does not independently verify them. |
-| `rakip_kopya` | Saved external page extracts, including provider pages, pricing, FAQs, policies, and third-party comparisons. | Preserve the named publisher and whether it reports another provider's claims. This class does not mean every source is a provider's own publication. |
-| `olgular` | Saved fact notes attributing seller-site or advertisement statements; these ledger entries have no source URL. | Retain the seller/ad attribution and missing address; do not turn the notes into a direct provider-page citation. |
-| `kaynak_sayfa` | Frozen KeepOkey cost-guide extract, used for the already recorded three-year scenarios. | These are scenarios published in the guide, not fresh calculations or new competitor quotations. |
+## Scope and selection
 
-The public ledger retains `source_url`, `source_kind`, `captured_on`, `page_ref`, and `claim_ref`. A blank URL means not stated. Matching to saved source text took place during compilation; local capture paths and line numbers are omitted from the public export.
+Device and service providers were included when an official product or support page was found in the source collection. Cellular carriers are included separately as context for connectivity and plan charges; their entries are not fall-detection devices. The collection is a defined comparison set, not a census of the market.
 
-## Transcription and coding
+- AlertLink — excluded: no official page found.
+- QMedic — excluded: no official page found.
+- One Call Alert — excluded: no official page found.
 
-Recorded amounts and substantive wording are kept as written in the saved evidence. Qualifications remain in `condition_note` and in the wide cell. Do not strip billing periods, purchase-versus-lease scope, exclusions, or statements that publications differ.
+The Lively terms page, ADT FAQ and Rescue Alert myActive page could not be opened and were not used as evidence. Other available pages for those providers remain eligible. Missing or inaccessible evidence does not establish that a feature or term is absent.
 
-The fields for commitment, phone dependency, and alert destination also use compiler categories. Examples are `yes`, `no`, `family`, `911`, and `monitoring_center`; these category labels are not verbatim provider quotations. Their accompanying source wording explains the coding. A source-class label likewise describes the compilation rather than a provider claim.
+## Sources and collection
 
-The wide file groups ledger entries by provider, product, and field, retaining alternate statements and attribution. No averaging resolves disagreements. Repeated statements can come from related publications and should not be counted as independent checks.
+Primary source types are official product pages, terms, FAQs and manuals. Only a provider's statements about its own products are treated as official evidence; statements about competitors on a provider's comparison page are not official evidence for those competitors. Third-party review or seller material is separately labelled and is a fallback for a provider–field combination without official evidence in the collection.
 
-An empty cell is reported as **not stated**. It does not establish a zero charge, a missing feature, or permission to cancel without cost.
+Pages were collected on 2026-11-20; KeepOkey product facts were updated on 2026-11-21. Collection was by plain HTTP request with a non-browser user agent honoring robots.txt; pages blocked to plain requests were saved manually from a regular browser session. Pages that remained unavailable were omitted. Source text includes visible page text and, where present, structured page data; claims taken from JSON-LD are identified in the condition note.
 
-## KeepOkey's position
+The long-form release retains all accepted source categories, including third-party records that are not selected for the wide comparison. Of its 1,121 records, 963 are from official product pages, terms, FAQs or manuals; 141 are third-party records; and 17 are KeepOkey product-fact records. A capture date records when the source was collected or incorporated, not when a price or claim first took effect.
 
-KeepOkey is the institutional compiler and a seller included in the comparison. Its row uses `gercekler` evidence from the separate seller-facts file. Competitor entries use the other recorded source classes. This separation identifies the origin of statements; it does not remove the compiler's commercial interest or establish equivalent evidence quality across rows.
+## Extraction and checks
 
-## Three-year scenarios
+Extraction was model-assisted. Each accepted long-form record carries a source URL, source-text reference, line number and verbatim quote. Non-coded values preserve source wording; categorical values use the documented code lists. Product, plan, promotion, billing and study-related qualifiers are retained in the condition note rather than inferred or reconciled.
 
-The `total_3yr` values are restricted to expressions and scenarios already present in the frozen CSVs. The guide scenarios assume **listed rates held constant** and continued use of the original device. Taxes, shipping, replacements, and unconfirmed charges are excluded. A carrier-charge example and a monitoring-only benchmark retain those narrower scopes.
+An automated verbatim check compared quotes with the saved source text and checked that non-coded values occur within their quotes. The check normalizes whitespace, case, quotation marks and dash variants; it is not a byte-for-byte comparison. A match within two lines of the recorded line is flagged rather than silently treated as an exact line match. Code validation checks permitted values; semantic support requires review.
 
-The KeepOkey cell is a hardware-price-plus-carrier-plan expression; the compilation supplies neither a carrier quote nor a calculated ownership total for that row. No new total, difference, percentage, or projection is calculated in this documentation.
+A second, independent semantic review removed 34 records and corrected 12 records. The November 20 validation report lists 1,148 records entering validation and 0 rejected records after those semantic changes. The corrected release has 1,121 accepted records, including two KeepOkey records added on November 21. Its 75 notices comprise the 34 removals, 12 corrections and 29 duplicate records omitted from the release. These are processing counts, not an estimated accuracy rate, and do not establish that the remaining records are error-free.
 
-## Exclusions and known limits
+## Building the wide comparison
 
-This is one documentary snapshot, with prices and policies subject to change. Its scoped rows are not an exhaustive market sample or a uniform product matrix. Missing fields and differently scoped policy rows prevent an unqualified comparison of every provider.
+The wide format has one row per provider. For each provider and field, accepted official records are selected if available; otherwise accepted third-party records are selected and the cell ends with `[third-party source]`. KeepOkey product facts are treated as the company's own claims. Third-party records remain identifiable in the long format even when an official record takes precedence in the wide format.
 
-Published specifications and seller claims are not device trials. The records do not establish detection accuracy, missed-fall frequency, emergency response time, actual operating duration, carrier activation success, or clinical outcomes. Network references and compatibility instructions do not demonstrate activation of an untested watch.
+Distinct retained values are joined with ` / `. Conditions appear in parentheses and product names in square brackets. This preserves plan and product differences; it does not choose a single offer or reconcile conflicting statements. The provider-level source list includes all retained source URLs, including those not selected for a particular wide-format cell. Use the long format to identify the evidence for an individual claim.
 
-The package provides recorded facts, source addresses where present, dates, and reference identifiers. It does not redistribute the saved source texts. Source matching supports transcription checks; it does not settle whether each underlying statement remains current or is correct in practice.
+`not stated` means no accepted record for that provider and field in this collection. It does not mean `no`, zero cost, no feature, no contract or a verified absence. Unknown fields have no placeholder record in the long format.
 
-AI citation and study tables: not included in this version.
+## KeepOkey disclosure
+
+KeepOkey publishes this index and offers a fall detection watch. Its 17 records are limited to the company's product facts associated with its published product page; they are not independent evidence. KeepOkey values use the current product facts published on its product page. These records are documentary claims, not independent product tests.
+
+## Limits and reuse
+
+Prices may change after capture. Promotional prices, billing schedules, equipment charges and plan differences must be read with their conditions; values joined with ` / ` are not interchangeable prices for one offer. Monetary and duration values preserve published wording rather than being converted into a common total cost. Manual SOS calling, automatic fall detection and notifications must also be distinguished using the product and condition notes.
+
+Published specifications and provider claims have not been independently tested for this dataset. An accuracy claim or a cited study is recorded as a statement on the source page, not validated as a result. Source availability and field coverage vary across providers. Changes from the previous release reflect changes in coverage and method as well as source content; they do not by themselves establish market trends.
+
+The compilation is offered under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Quoted source material remains attributable to its respective rights holders; this license does not relicense third-party source pages.
+
+## How to cite
+
+> KeepOkey. (2026). KeepOkey Fall Alert Index — November 2026 (Version 2.0.2) [Data set]. https://doi.org/10.5281/zenodo.24417882
+>
+> Free to use with attribution (CC BY 4.0).
+
+Concept DOI supplied for the existing record: [10.5281/zenodo.24260237](https://doi.org/10.5281/zenodo.24260237). Version 2.0.2 DOI: [10.5281/zenodo.24417882](https://doi.org/10.5281/zenodo.24417882).

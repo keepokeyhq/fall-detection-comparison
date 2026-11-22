@@ -1,18 +1,25 @@
 cff-version: 1.2.0
-message: "Please cite the frozen dataset release. Zenodo DOI: https://doi.org/10.5281/zenodo.24260238."
+message: "If you use this dataset, please cite it as below."
 type: dataset
-title: "US fall detection watch and medical alert comparison: fees, terms and who is called (November 2026)"
+title: "KeepOkey Fall Alert Index — November 2026"
 authors:
   - name: KeepOkey
-version: 1.0.0
-doi: 10.5281/zenodo.24260238
-date-released: 2026-11-15
+version: 2.0.2
+date-released: 2026-11-21
 license: CC-BY-4.0
+url: "https://keepokey.com/pages/fall-alert-index"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24260237
+    description: "Concept DOI (all versions)"
+  - type: doi
+    value: 10.5281/zenodo.24417882
+    description: "Version 2.0.2"
 keywords:
   - fall detection
   - medical alert
-  - fees
+  - who is called after a fall
+  - monthly fees
   - service terms
-  - alert recipients
   - United States
-abstract: "Frozen documentary comparison: 39 scoped rows, 158 populated value cells, and 203 evidence records. KeepOkey is an included seller and the institutional compiler. Source statements are not product-performance test results."
+abstract: "Documentary comparison of 31 US fall detection and medical alert providers and carriers: 1121 source-quoted claims on who is called after a fall, family call order, no-answer behavior, fees, contracts, trials, returns and battery. KeepOkey publishes the index and offers a fall detection watch; no record is a product test."
